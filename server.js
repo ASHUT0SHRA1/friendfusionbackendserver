@@ -26,6 +26,7 @@ app.get('/', (req , res)=> {
 //register
 app.use('/api/v1/auth'  , require('./routes/userroute'))
 app.use('/api/v1/post' , require('./routes/postroute'))
+app.use('/api/v1/message' , require('./routes/messageroute'))
 // //login
 // app.use('api/v1/auth', require('./routes/userroute'))
 
