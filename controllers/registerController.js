@@ -120,8 +120,10 @@ const userList = async (req, res) => {
         const  id  = req.params.userid;
         const currentUser = await usermodel.findById(id);
         const usersentrequest = currentUser.sentFriendRequest;
+        const userfriends = currentUser.friends ;
+        const friendrequest = currentUser.friendRequest ; 
         const userslist = await usermodel.find({ 
-            _id: { $ne: id ,$nin : [...usersentrequest]} 
+            _id: { $ne: id ,$nin : [...usersentrequest , ...userfriends , ...friendrequest] } 
         
         });
         res.status(200).send({

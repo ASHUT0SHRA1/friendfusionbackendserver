@@ -59,9 +59,10 @@ const getallpostcontroller = async (req, res) => {
 }
 
 const getuserPost = async (req, res) => {
+    const id = req.params.id ; 
     try {
         // fill it 
-        const userposts = await postmodel.find({ postedBy: req.auth._id }).populate("postedBy", "_id name")
+        const userposts = await postmodel.find({ postedBy: id }).populate("postedBy", "_id name")
             .sort({ createdAt: -1 });
 
         res.status(200).send({
